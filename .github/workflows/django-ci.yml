@@ -1,4 +1,4 @@
-name: Django Migrate
+name: Django CI
 
 on:
   workflow_run:
