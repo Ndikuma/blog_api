@@ -1,12 +1,6 @@
 name: Django Migrate
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_run:
     workflows: ["Django test"]  # or whichever workflow should trigger this
     types:
