@@ -2,7 +2,7 @@ name: Docker Build
 
 on:
   workflow_run:
-    workflows: ["Django Migrate"]  # or whichever workflow should trigger this
+    workflows: ["Django CI"]  # or whichever workflow should trigger this
     types:
       - completed
 

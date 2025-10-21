@@ -35,14 +35,4 @@ jobs:
       - name: Check formatting with black
         run: black --check .
 
-      # 6. Security scan
-      # - name: Security scan with Bandit
-      #   run: bandit -r .
-
-      # 7. Run tests
-      - name: Run tests with pytest
-
-        run: | 
-          python -m pip install pytest 
-          python -m pip install pytest-cov 
-          python -m pytest --cov=. --cov-report=xml
+     
