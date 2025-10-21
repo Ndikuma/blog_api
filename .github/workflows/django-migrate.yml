@@ -1,8 +1,10 @@
 name: Django Migrate
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ["Django Test"]
+    types:
+      - completed
 
 jobs:
   migrate:
