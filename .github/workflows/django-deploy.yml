@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DOCKER_IMAGE: idris257/blog_api:latest
-      RENDER_SERVICE_ID: srv-d3rrvivdiees73bvpag0
+      RENDER_SERVICE_ID: srv-d3rsdfc9c44c73avlgj0
 
     steps:
       - name: Checkout repository
