@@ -1,0 +1,54 @@
+name: Django Migrate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_run:
+    workflows: ["Django test"]  # or whichever workflow should trigger this
+    types:
+      - completed
+
+jobs:
+  ci:
+    name: CI - Lint, Security, Test
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - uses: actions/checkout@v3
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 black bandit pytest
+
+      # 4. Lint code
+      - name: Lint with flake8
+        run: flake8 .
+
+      # 5. Check code formatting
+      - name: Check formatting with black
+        run: black --check .
+
+      # 6. Security scan
+      - name: Security scan with Bandit
+        run: bandit -r .
+
+      # 7. Run tests
+      - name: Run tests with pytest
+
+        run: | 
+          python -m pip install pytest 
+          python -m pip install pytest-cov 
+          python -m pytest --cov=. --cov-report=xml
