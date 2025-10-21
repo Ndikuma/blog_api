@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: idris257
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: Idris@25762
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
