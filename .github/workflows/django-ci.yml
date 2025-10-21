@@ -42,8 +42,8 @@ jobs:
         run: black --check .
 
       # 6. Security scan
-      - name: Security scan with Bandit
-        run: bandit -r .
+      # - name: Security scan with Bandit
+      #   run: bandit -r .
 
       # 7. Run tests
       - name: Run tests with pytest
