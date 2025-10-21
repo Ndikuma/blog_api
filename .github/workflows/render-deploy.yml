@@ -1,0 +1,23 @@
+name: 🚀 Render Deploy
+
+on:
+  workflow_run:
+    workflows: ["Docker Build"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Deploy
+        env:
+          RENDER_API_KEY: rnd_qXEEHdMmlqjEHUM6PhFhtfOreYLK
+          SERVICE_ID: srv-d3rsdfc9c44c73avlgj0
+        run: |
+          echo "Triggering Render deployment for $SERVICE_ID..."
+          curl -X POST "https://api.render.com/v1/services/${SERVICE_ID}/deploys" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer ${RENDER_API_KEY}" \
+            -d '{}'

@@ -35,3 +35,4 @@ typing_extensions==4.15.0
 tzdata==2025.2
 uritemplate==4.2.0
 virtualenv==20.35.3
+gunicorn
